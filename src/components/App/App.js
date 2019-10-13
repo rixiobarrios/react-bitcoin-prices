@@ -33,7 +33,7 @@ class App extends Component {
         </nav>
         <main>
           {/* Route - a component that renders a specified component (using either render or component) based on the current url (path) we're at. path should probably match a <Link to=""> defined somewhere. */}
-          <Route path="/" component={Home} />
+          <Route path="/" exact component={Home} />
           <Route path="/currencies" component={Currencies} />
           {/* we have to make sure we're using render instead of component in our route. That's because we're going to be passing some props into our component. */}
           <Route

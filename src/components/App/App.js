@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Home from '../Home/Home';
 import './App.css';
 import { Route, Link } from 'react-router-dom';
+import Currencies from '../Currencies/Currencies';
 
 class App extends Component {
   constructor(props) {
@@ -28,10 +29,12 @@ class App extends Component {
             />
             <h1>Bitcoin prices</h1>
           </Link>
+          <Link to="/currencies">Currency List</Link>
         </nav>
         <main>
           {/* Route - a component that renders a specified component (using either render or component) based on the current url (path) we're at. path should probably match a <Link to=""> defined somewhere. */}
           <Route path="/" component={Home} />
+          <Route path="/currencies" component={Currencies} />
         </main>
       </div>
     );

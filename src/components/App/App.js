@@ -39,10 +39,17 @@ class App extends Component {
           <Route
             path="/price/:currency"
             render={routerProps => (
+              // <Price
+              //   setPrice={this.setPrice}
+              //   {...routerProps}
+              //   {...this.state}
+              // />
               <Price
                 setPrice={this.setPrice}
-                {...routerProps}
-                {...this.state}
+                history={routerProps.history}
+                location={routerProps.location}
+                match={routerProps.match}
+                price={this.state.price}
               />
             )}
           />

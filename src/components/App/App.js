@@ -42,7 +42,7 @@ class App extends Component {
               render={routerProps => (
                 <Price
                   setPrice={this.setPrice}
-                  {...routerProps}
+                  match={routerProps.match}
                   {...this.state}
                 />
               )}

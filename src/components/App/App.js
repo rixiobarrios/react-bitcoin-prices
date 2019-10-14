@@ -43,7 +43,7 @@ class App extends Component {
                 <Price
                   setPrice={this.setPrice}
                   match={routerProps.match}
-                  {...this.state}
+                  price={this.state.price}
                 />
               )}
             />

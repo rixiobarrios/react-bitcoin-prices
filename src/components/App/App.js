@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from '../Home/Home';
 import './App.css';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Route, Link, Redirect, Switch } from 'react-router-dom';
 import Currencies from '../Currencies/Currencies';
 
 class App extends Component {
@@ -32,24 +32,26 @@ class App extends Component {
           <Link to="/currencies">Currency List</Link>
         </nav>
         <main>
-          {/* Route - a component that renders a specified component (using either render or component) based on the current url (path) we're at. path should probably match a <Link to=""> defined somewhere. */}
-          <Route path="/" exact component={Home} />
-          <Route path="/currencies" component={Currencies} />
-          {/* we have to make sure we're using render instead of component in our route. That's because we're going to be passing some props into our component. */}
-          <Route
-            path="/price/:currency"
-            render={routerProps => (
-              <Price
-                setPrice={this.setPrice}
-                {...routerProps}
-                {...this.state}
-              />
-            )}
-          />
-          <Route
-            path="/currency"
-            render={() => <Redirect to="/currencies" />}
-          />
+          <Switch>
+            {/* Route - a component that renders a specified component (using either render or component) based on the current url (path) we're at. path should probably match a <Link to=""> defined somewhere. */}
+            <Route path="/" exact component={Home} />
+            <Route path="/currencies" component={Currencies} />
+            {/* we have to make sure we're using render instead of component in our route. That's because we're going to be passing some props into our component. */}
+            <Route
+              path="/price/:currency"
+              render={routerProps => (
+                <Price
+                  setPrice={this.setPrice}
+                  {...routerProps}
+                  {...this.state}
+                />
+              )}
+            />
+            <Route
+              path="/currency"
+              render={() => <Redirect to="/currencies" />}
+            />
+          </Switch>
         </main>
       </div>
     );

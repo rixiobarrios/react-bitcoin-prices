@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from '../Home/Home';
 import './App.css';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Redirect } from 'react-router-dom';
 import Currencies from '../Currencies/Currencies';
 
 class App extends Component {
@@ -45,6 +45,10 @@ class App extends Component {
                 {...this.state}
               />
             )}
+          />
+          <Route
+            path="/currency"
+            render={() => <Redirect to="/currencies" />}
           />
         </main>
       </div>
